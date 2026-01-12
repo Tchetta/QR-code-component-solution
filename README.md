@@ -5,6 +5,9 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 ## Overview
 A mobile-first QR code component built with a focus on professional SCSS architecture and BEM naming conventions.
 
+## Vercel Site
+[https://qr-code-component-solution-lime.vercel.app/](https://qr-code-component-solution-lime.vercel.app/)
+
 ## My Process
 ### Built With
 - Semantic HTML5
