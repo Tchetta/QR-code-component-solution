@@ -1,0 +1,18 @@
+@function rem($pxValue) {
+  @return ($pxValue / 16) * 1rem;
+}
+
+@function em($pxValue) {
+  @return ($pxValue / 16) * 1em;
+}
+
+// Linearly scales a value between a min and max
+@function fluid($min-size, $max-size, $min-breakpoint: 400px, $max-breakpoint: 1200px) {
+  $slope: ($max-size - $min-size) / ($max-breakpoint - $min-breakpoint);
+  $y-axis-intersection: -$min-breakpoint * $slope + $min-size;
+  
+  // Converts to a string for CSS clamp: clamp(min, preferred, max)
+  @return clamp(#{$min-size}, #{$y-axis-intersection} + #{$slope * 100vw}, #{$max-size});
+}
+
+// Usage: h1 { font-size: fluid(24px, 48px); }

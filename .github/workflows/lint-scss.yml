@@ -1,0 +1,19 @@
+name: SCSS Check
+on: [pull_request] # Runs whenever a partner opens a PR
+
+jobs:
+  style-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # Gets the code
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Sass
+        run: npm install -g sass
+
+      - name: Check SCSS Syntax
+        run: sass scss/main.scss dist/css/main.css --no-source-map # Tries to compile
